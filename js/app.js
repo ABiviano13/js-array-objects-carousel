@@ -60,6 +60,10 @@ console.log(carouselElement);
 for(let i = 0; i < arrayImageSlide.length; i++) {
     // 1. Salvare in una variabile l'indice dell'array
     const indexSlide = arrayImageSlide[i];
+
+    const imageSlide = indexSlide.image;
+    const titleSlide = indexSlide.title;
+    const textSlide = indexSlide.text;
     // 2. Creare elementi html di tipo img
     // const imageElement = document.createElement('img');
     // console.log(imageElement);
@@ -79,7 +83,9 @@ for(let i = 0; i < arrayImageSlide.length; i++) {
 
     const imageElement =  `
     <div class="${className}">
-      <img src="${indexSlide}" alt="">
+       <div class="title">${titleSlide}</div>
+       <div class="text">${textSlide}</div>
+      <img src="${imageSlide}" alt="">
     </div>
     `;
 
