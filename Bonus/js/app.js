@@ -170,7 +170,15 @@ const lastIndex = slideElements.length - 1;
 
 // });
 
-const timer = setInterval(isRightElement, 1000);
+let timer = setInterval(isRightElement, 1000);
+
+const stopBtnElement = document.getElementById('button-stop');
+
+stopBtnElement.addEventListener('click', getTimeStop)
+
+const startBtnElement = document.getElementById('button-start');
+
+startBtnElement.addEventListener('click', getTimeStart)
 
 
 /// FUNZIONI ///
@@ -199,4 +207,12 @@ function isRightElement(){
 
 	// console.log(slideElements[indexSlideActive]);
 	slideElements[indexSlideActive].classList.add('active');
+}
+
+function getTimeStop(){
+    clearInterval(timer);
+}
+
+function getTimeStart(){
+
 }
