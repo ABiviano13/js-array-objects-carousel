@@ -145,17 +145,17 @@ rightBtnElement.addEventListener('click', function (){
 // 4. Creare una funzione per la quale quando si effettua un click nella freccia a sinistra si ritorna indietro fino all'indice 0 
 leftBtnElement.addEventListener('click', function (){
 
-    // if(indexSlideActive > 0){
-    // // 1. Togliere la classe active dalla slide corrente
-    // slideElements[indexSlideActive].classList.remove('active');
-    // console.log(arrayImageSlide[indexSlideActive]);
-    // // 2. Decrementare l'indice
-    // indexSlideActive -= 1;
-    // console.log(indexSlideActive);
-    // // 3. Aggiungere la classe active alla slide precedente
-    // slideElements[indexSlideActive].classList.add('active');
-    // console.log(arrayImageSlide[indexSlideActive]);
-    // };
+//     // if(indexSlideActive > 0){
+//     // // 1. Togliere la classe active dalla slide corrente
+//     // slideElements[indexSlideActive].classList.remove('active');
+//     // console.log(arrayImageSlide[indexSlideActive]);
+//     // // 2. Decrementare l'indice
+//     // indexSlideActive -= 1;
+//     // console.log(indexSlideActive);
+//     // // 3. Aggiungere la classe active alla slide precedente
+//     // slideElements[indexSlideActive].classList.add('active');
+//     // console.log(arrayImageSlide[indexSlideActive]);
+//     // };
 
 	slideElements[indexSlideActive].classList.remove('active');
 
