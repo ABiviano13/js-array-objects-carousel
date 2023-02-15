@@ -15,7 +15,7 @@ let arrayImageSlide = [
 let indexSlideActive = 0;
 
 // 3. Creare una variabile che racchiude il nostro carosello
-let carouselElement = document.querySelector('.carousel');
+const carouselElement = document.querySelector('.carousel');
 console.log(carouselElement);
 
 // 4. Creare un ciclo for per creare tutti gli elementi presenti nell'array
@@ -23,62 +23,101 @@ for(let i = 0; i < arrayImageSlide.length; i++) {
     // 1. Salvare in una variabile l'indice dell'array
     const indexSlide = arrayImageSlide[i];
     // 2. Creare elementi html di tipo img
-    const imageElement = document.createElement('img');
-    console.log(imageElement);
+    // const imageElement = document.createElement('img');
+    // console.log(imageElement);
+
+    // let imageElement = document.querySelectorAll('.slide-carousel');
+    // console.log(imageElement)
+
     // 3. Aggiungere src
-    imageElement.src=[indexSlide];
-    console.log(imageElement);
+    // imageElement.src=[indexSlide];
+    // console.log(imageElement);
     // 4. Creare un if per assegnare all'indexSlideActive sia la classe 'slide-carousel' sia la classe 'active' e a tutti gli altri elementi solo la prima classe
-    if( i === indexSlideActive){
-        imageElement.classList.add('slide-carousel', 'active');
-    } else {
-        imageElement.classList.add('slide-carousel');
+    let className = 'slide-carousel';
+
+    if(i === indexSlideActive){
+        className += ' active';
     }
+
+    const imageElement =  `
+    <div class="${className}">
+      <img src="${indexSlide}" alt="">
+    </div>
+    `;
+
+    // console.log(imageElement);
+
+    carouselElement.innerHTML += imageElement;
     // 5. Aggiungere gli elementi
-    carouselElement.append(imageElement);
+    // carouselElement.append(imageElement);
 }
 
 // Milestrone 2
 
 // 1. Creare una variabile che si collega al DOM e prende tutte le slide
-const slideElements = document.getElementsByClassName('slide-carousel');
-console.log(slideElements);
+const slideElements = document.querySelectorAll('.slide-carousel');
+// console.log(slideElements);
 
 // 2. Creare due variabili che si collega al DOM e prende le frecce
 const rightBtnElement = document.querySelector('.arrow-right');
 const leftBtnElement = document.querySelector('.arrow-left');
-console.log(rightBtnElement, leftBtnElement);
+// console.log(rightBtnElement, leftBtnElement);
 
 // 3. Creare una funzione per la quale quando si effettua un click nella freccia a destra si scorre fino all'ultima immagine
+const lastIndex = slideElements.length - 1;
+
 rightBtnElement.addEventListener('click', function (){
 
-    if(indexSlideActive < arrayImageSlide.length - 1){
-    // 1. Togliere la classe active dalla slide corrente
-    slideElements[indexSlideActive].classList.remove('active');
-    console.log(arrayImageSlide[indexSlideActive]);
-    // 2. Incrementare l'indice
-    indexSlideActive += 1;
-    console.log(indexSlideActive);
-    // 3. Aggiungere la classe active alla slide successiva
-    slideElements[indexSlideActive].classList.add('active');
-    console.log(arrayImageSlide[indexSlideActive]);
-    };
+    // if(indexSlideActive < arrayImageSlide.length - 1){
+    // // 1. Togliere la classe active dalla slide corrente
+    // slideElements[indexSlideActive].classList.remove('active');
+    // console.log(arrayImageSlide[indexSlideActive]);
+    // // 2. Incrementare l'indice
+    // indexSlideActive += 1;
+    // console.log(indexSlideActive);
+    // // 3. Aggiungere la classe active alla slide successiva
+    // slideElements[indexSlideActive].classList.add('active');
+    // console.log(arrayImageSlide[indexSlideActive]);
+    // };
+
+	// console.log(slideElements[indexSlideActive]);
+	slideElements[indexSlideActive].classList.remove('active');
+
+	if (indexSlideActive < lastIndex) {
+		indexSlideActive += 1;
+	} else {
+		indexSlideActive = 0;
+	};
+
+	// console.log(slideElements[indexSlideActive]);
+	slideElements[indexSlideActive].classList.add('active');
 
 });
 
 // 4. Creare una funzione per la quale quando si effettua un click nella freccia a sinistra si ritorna indietro fino all'indice 0 
 leftBtnElement.addEventListener('click', function (){
 
-    if(indexSlideActive > 0){
-    // 1. Togliere la classe active dalla slide corrente
-    slideElements[indexSlideActive].classList.remove('active');
-    console.log(arrayImageSlide[indexSlideActive]);
-    // 2. Decrementare l'indice
-    indexSlideActive -= 1;
-    console.log(indexSlideActive);
-    // 3. Aggiungere la classe active alla slide precedente
-    slideElements[indexSlideActive].classList.add('active');
-    console.log(arrayImageSlide[indexSlideActive]);
-    };
+    // if(indexSlideActive > 0){
+    // // 1. Togliere la classe active dalla slide corrente
+    // slideElements[indexSlideActive].classList.remove('active');
+    // console.log(arrayImageSlide[indexSlideActive]);
+    // // 2. Decrementare l'indice
+    // indexSlideActive -= 1;
+    // console.log(indexSlideActive);
+    // // 3. Aggiungere la classe active alla slide precedente
+    // slideElements[indexSlideActive].classList.add('active');
+    // console.log(arrayImageSlide[indexSlideActive]);
+    // };
+
+	slideElements[indexSlideActive].classList.remove('active');
+
+	if (indexSlideActive > 0) {
+		indexSlideActive--;
+	} else {
+		indexSlideActive = lastIndex;
+	};
+
+	// console.log(slideElements[indexSlideActive])
+	slideElements[indexSlideActive].classList.add('active');
 
 });
