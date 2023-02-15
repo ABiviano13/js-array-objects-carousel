@@ -18,6 +18,14 @@ img{
     display: block;
 }
 
+
+.text{
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .carousel__arrow {
 	position: absolute;
 	font-size: 35px;

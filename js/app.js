@@ -39,8 +39,8 @@ let arrayImageSlide = [
     },
     {
         image: './img/image8.jpg',
-        title: 'InterContinental Bora Bora Resort Thalasso Spa',
-        text: 'Hotel di Bora Bora, Indonesia isola felice'
+        title: 'InterContinental Bora Bora Resort',
+        text: 'Hotel Thalasso di Bora Bora, Indonesia isola felice'
     },
     {
         image: './img/image10.jpg',
@@ -83,9 +83,13 @@ for(let i = 0; i < arrayImageSlide.length; i++) {
 
     const imageElement =  `
     <div class="${className}">
-       <div class="title">${titleSlide}</div>
-       <div class="text">${textSlide}</div>
-      <img src="${imageSlide}" alt="">
+        <div class="text">
+            <div class="title">
+                ${titleSlide}
+            </div>
+            ${textSlide}
+        </div>
+        <img class="imageslide" src="${imageSlide}" alt="">
     </div>
     `;
 
