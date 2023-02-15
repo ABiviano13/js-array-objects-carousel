@@ -170,15 +170,20 @@ const lastIndex = slideElements.length - 1;
 
 // });
 
-let timer = setInterval(isRightElement, 1000);
+let timerRight = '';
+let timerLeft = '';
 
 const stopBtnElement = document.getElementById('button-stop');
 
-stopBtnElement.addEventListener('click', getTimeStop)
+stopBtnElement.addEventListener('click', getTimeStop);
 
 const startBtnElement = document.getElementById('button-start');
 
-startBtnElement.addEventListener('click', getTimeStart)
+startBtnElement.addEventListener('click', getTimeStart);
+
+const reverseBtnElement = document.getElementById('button-reverse');
+
+reverseBtnElement.addEventListener('click', getReverse);
 
 
 /// FUNZIONI ///
@@ -210,9 +215,16 @@ function isRightElement(){
 }
 
 function getTimeStop(){
-    clearInterval(timer);
+    clearInterval(timerRight);
+    clearInterval(timerLeft);
 }
 
 function getTimeStart(){
+    clearInterval(timerLeft);
+    timerRight = setInterval(isRightElement, 1000);
+}
 
+function getReverse(){
+    clearInterval(timerRight);
+    timerLeft = setInterval(isleftElement, 1000);
 }
