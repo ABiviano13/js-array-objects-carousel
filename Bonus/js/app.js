@@ -57,27 +57,12 @@ const carouselElement = document.querySelector('.carousel');
 console.log(carouselElement);
 
 // 4. Creare un ciclo for per creare tutti gli elementi presenti nell'array
-for(let i = 0; i < arrayImageSlide.length; i++) {
-    // 1. Salvare in una variabile l'indice dell'array
-    const indexSlide = arrayImageSlide[i];
 
-    const imageSlide = indexSlide.image;
-    const titleSlide = indexSlide.title;
-    const textSlide = indexSlide.text;
-    // 2. Creare elementi html di tipo img
-    // const imageElement = document.createElement('img');
-    // console.log(imageElement);
+arrayImageSlide.forEach(({image, title, text}, index) => {
 
-    // let imageElement = document.querySelectorAll('.slide-carousel');
-    // console.log(imageElement)
-
-    // 3. Aggiungere src
-    // imageElement.src=[indexSlide];
-    // console.log(imageElement);
-    // 4. Creare un if per assegnare all'indexSlideActive sia la classe 'slide-carousel' sia la classe 'active' e a tutti gli altri elementi solo la prima classe
     let className = 'slide-carousel';
 
-    if(i === indexSlideActive){
+    if(index === indexSlideActive){
         className += ' active';
     }
 
@@ -85,11 +70,11 @@ for(let i = 0; i < arrayImageSlide.length; i++) {
     <div class="${className}">
         <div class="text">
             <div class="title">
-                ${titleSlide}
+                ${title}
             </div>
-            ${textSlide}
+            ${text}
         </div>
-        <img class="imageslide" src="${imageSlide}" alt="">
+        <img class="imageslide" src="${image}" alt="">
     </div>
     `;
 
@@ -98,7 +83,49 @@ for(let i = 0; i < arrayImageSlide.length; i++) {
     carouselElement.innerHTML += imageElement;
     // 5. Aggiungere gli elementi
     // carouselElement.append(imageElement);
-}
+})
+// for(let i = 0; i < arrayImageSlide.length; i++) {
+//     // 1. Salvare in una variabile l'indice dell'array
+//     const indexSlide = arrayImageSlide[i];
+
+//     const imageSlide = indexSlide.image;
+//     const titleSlide = indexSlide.title;
+//     const textSlide = indexSlide.text;
+//     // 2. Creare elementi html di tipo img
+//     // const imageElement = document.createElement('img');
+//     // console.log(imageElement);
+
+//     // let imageElement = document.querySelectorAll('.slide-carousel');
+//     // console.log(imageElement)
+
+//     // 3. Aggiungere src
+//     // imageElement.src=[indexSlide];
+//     // console.log(imageElement);
+//     // 4. Creare un if per assegnare all'indexSlideActive sia la classe 'slide-carousel' sia la classe 'active' e a tutti gli altri elementi solo la prima classe
+//     let className = 'slide-carousel';
+
+//     if(i === indexSlideActive){
+//         className += ' active';
+//     }
+
+//     const imageElement =  `
+//     <div class="${className}">
+//         <div class="text">
+//             <div class="title">
+//                 ${titleSlide}
+//             </div>
+//             ${textSlide}
+//         </div>
+//         <img class="imageslide" src="${imageSlide}" alt="">
+//     </div>
+//     `;
+
+//     // console.log(imageElement);
+
+//     carouselElement.innerHTML += imageElement;
+//     // 5. Aggiungere gli elementi
+//     // carouselElement.append(imageElement);
+// }
 
 // Milestrone 2
 
